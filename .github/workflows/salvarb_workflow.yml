@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Linter execution
-        run: npx next lint
+        run: npm install --save-dev eslint && npx next lint
 
   # test-execution:
   #   runs-on: ubuntu-latest
