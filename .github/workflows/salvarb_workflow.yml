@@ -1,0 +1,48 @@
+name: workflow-practica
+on:
+  push:
+    branches:
+      - master
+jobs:
+  Linter_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Linter execution
+        run: npx next lint
+
+  # test-execution:
+  #   runs-on: ubuntu-latest
+  #   # needs: linter-execution
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #     - name: Run jest tests
+  #       id: test
+  #       run: npm install jest && npm test
+  #       continue-on-error: true
+  #     - name: Print error
+  #       if: steps.test.outcome != 'success'
+  #       run: echo "El test ha fallado"
+
+  #     # - name: Send mail
+  #     #   uses: dawidd6/action-send-mail@v3
+  #     #   with:
+  #     #     server_address: smtp.gmail.com
+  #     #     username: ${{secrets.MAIL_USERNAME}}
+  #     #     password: ${{secrets.MAIL_PASSWORD}}
+  #     #     to: salroiba03@gmail.com
+  #     #     from: Salva
+  #     #     subject: Github Actions job result
+  #     #     body: Mensaje enviado
+
+  # environment_test_execution:
+  #   runs-on: ubuntu-latest
+  #   # needs: linter-execution
+  #   steps:
+  #     - name: Checkout code
+  #       id: Hola
+  #       uses: adeloyedeji/github-actions-hello@v1.0
+  #       with:
+  #         who-to-greet: "Pepe"
