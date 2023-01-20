@@ -1,0 +1,7 @@
+name: "Meme"
+inputs:
+  cypress_outcome:
+    required: true
+runs: 
+  using: node16
+  main: dist/index.js
