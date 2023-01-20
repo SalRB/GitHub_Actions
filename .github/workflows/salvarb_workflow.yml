@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Server start
-        run: npm start
+        run: npm install && npm start
       - name: Cypress run
         uses: cypress-io/github-action@v5
         continue-on-error: true
