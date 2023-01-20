@@ -1,8 +1,5 @@
 name: workflow-practica
-on:
-  push:
-    branches:
-      - master
+on: [push]
 jobs:
   Linter_job:
     runs-on: ubuntu-latest
@@ -11,6 +8,24 @@ jobs:
         uses: actions/checkout@v2
       - name: Linter execution
         run: npm install --save-dev eslint && npx next lint
+
+  Cypress_job:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        continue-on-error: true
+      - name: Upload-Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: result
+          path: artifact/result.txt
+
+# npx next build
+# npm start
+# npm run cypress
 
   # test-execution:
   #   runs-on: ubuntu-latest
