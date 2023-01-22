@@ -127,7 +127,7 @@ const res = process.env.res;
 
 let URL;
 
-const bad = "https://img.shields.io/badge/test-failure-red"
+const bad = "https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg"
 const good = "https://img.shields.io/badge/test-failure-red"
 
 if (res == "failure") {
