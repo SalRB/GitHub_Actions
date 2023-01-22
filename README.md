@@ -53,7 +53,13 @@ Lo primero que hará será hacer un npm install para mas tarde poder iniciar la 
           path: result.txt
 ```
 
+Aquí lo que pasa cuando los tests devuelven errores:
 
+![Imagen](/assets/02.png)
+
+
+
+RESULTADO TEST CYPRESS:
 
 <!---Start place for the badge -->
 [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
