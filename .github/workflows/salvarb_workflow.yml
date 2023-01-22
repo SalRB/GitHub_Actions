@@ -57,7 +57,7 @@ jobs:
           add: "."
           author_name: "Salva Roig"
           author_email: "salroiba03@gmail.com"
-          message: "Readme Updated succesfully"
+          message: "Readme Updated succesfully."
           push: true
 
   # test-execution:
