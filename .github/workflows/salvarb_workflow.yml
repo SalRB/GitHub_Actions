@@ -54,6 +54,9 @@ jobs:
       - name: Endbug
         uses: EndBug/add-and-commit@v9
         with:
+          add: "."
+          author_name: "Salva Roig"
+          author_email: "salroiba03@gmail.com"
           message: "Readme Updated succesfully"
           push: true
 
