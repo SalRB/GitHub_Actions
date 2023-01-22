@@ -203,6 +203,5 @@ jobs:
 RESULTADO TEST CYPRESS:
 
 <!---Start place for the badge -->
-![Cypress.io](https://img.shields.io/badge/test-failure-red)
-
+![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)
 <!---End place for the badge -->
