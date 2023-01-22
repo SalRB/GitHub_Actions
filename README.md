@@ -59,6 +59,7 @@ Aquí lo que pasa cuando los tests devuelven errores:
 
 
 
+
 RESULTADO TEST CYPRESS:
 
 <!---Start place for the badge -->
