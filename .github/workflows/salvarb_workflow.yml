@@ -25,7 +25,8 @@ jobs:
           build: npm run build
           start: npm start
         continue-on-error: true
-      - run: echo ${{ steps.cypress_test.outcome }}  > result.txt
+      - name: Create file
+        run: echo ${{ steps.cypress_test.outcome }}  > result.txt
       - name: Upload-Artifact
         uses: actions/upload-artifact@v2
         with:
