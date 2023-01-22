@@ -18,7 +18,7 @@ jobs:
       - name: Server install
         run: npm install
       - name: Cypress run # Corregido un POST que ponía POST0
-      - id: cypress_test
+        id: cypress_test
         uses: cypress-io/github-action@v5
         with:
           config-file: cypress.json
