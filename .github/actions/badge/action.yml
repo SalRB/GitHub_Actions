@@ -1,6 +1,6 @@
-name: "Meme"
+name: "Add badge"
 inputs:
-  cypress_outcome:
+  res:
     required: true
 runs: 
   using: node16

@@ -3,20 +3,24 @@ const path = require('path');
 
 const readme = path.resolve('./README.md')
 
-const res = process.env.cypress_outcome;
+const res = process.env.res;
 
 let URL;
 
+const bad = "https://img.shields.io/badge/test-failure-red"
+const good = "https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg"
+
 if (res == "failure") {
-    URL = "https://img.shields.io/badge/test-failure-red";
+    URL = bad;
 } else if (res == "success") {
-    URL = "https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg";
+    URL = good;
 }
 
-URL = "<!-- Start -->\n![BADGE](" + URL + ")\n<!-- End -->"
-console.log("ejecutandose el index");
-
-fs.writeFile(readme, URL, function (err) {
+fs.readFile(readme, 'utf8', function (err, data) {
     if (err) throw err;
-    console.log('Archivo actualizado.');
-})
+    let updatedReadme = data.search(good) !== -1 ? data.replace(good, URL) : data.replace(bad, URL)
+    fs.writeFile(readme, updatedReadme, function (err) {
+        if (err) throw err;
+        console.log('Archivo actualizado.');
+    })
+});

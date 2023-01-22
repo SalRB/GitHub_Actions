@@ -33,29 +33,29 @@ jobs:
           name: result
           path: result.txt
 
-  # Add_badge_job:
-  #   runs-on: ubuntu-latest
-  #   needs: Cypress_job
-  #   if: ${{ always() }}
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
-  #     - name: Upload-Artifact
-  #       uses: actions/download-artifact@v2
-  #       with:
-  #         name: result
-  #     - name: Server install
-  #       run: echo "::set-output name=cypress_outcome::$(cat result.txt)"
-
-  #     - name: Custom action
-  #       uses: ./.github/actions/badge
-  #       env:
-  #         res: ${{ needs.test-execution.result }}
-  #     - name: Endbug
-  #       uses: EndBug/add-and-commit@v9
-  #       with:
-  #         message: "Readme Updated succesfully"
-  #         push: true
+  Add_badge_job:
+    runs-on: ubuntu-latest
+    needs: Cypress_job
+    # if: ${{ always() }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Upload-Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: result
+      - name: Get file data
+        id: data
+        run: echo "::set-output name=cypress_outcome::$(cat result.txt)"
+      - name: Custom action
+        uses: ./.github/actions/badge
+        env:
+          res: ${{ steps.data.outputs.cypress_outcome }}
+      - name: Endbug
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "Readme Updated succesfully"
+          push: true
 
   # test-execution:
   #   runs-on: ubuntu-latest
